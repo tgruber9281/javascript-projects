@@ -15,3 +15,5 @@ let language = 'JavaScript';
 //1. Use the string methods you know to print 'Title Case' from the string 'title case'.
 
 let notTitleCase = 'title case';
+
+console.log(notTitleCase.charAt(0).toUpperCase()+notTitleCase.slice(1,6)+notTitleCase.charAt(6).toUpperCase()+notTitleCase.slice(7));

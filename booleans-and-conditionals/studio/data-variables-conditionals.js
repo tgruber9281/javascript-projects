@@ -10,7 +10,7 @@ let fuelMassKg = 760000;
 let shuttleMassKg = 74842.31;
 let totalMassKg = crewMassKg + fuelMassKg + shuttleMassKg;
 let maximumMassLimit = 850000;
-let fuelTempCelsius = -225;
+let fuelTempCelsius = 225;
 let minimumFuelTemp = -300;
 let maximumFuelTemp = -150;
 let fuelLevel = 100;
@@ -30,9 +30,16 @@ if (totalMassKg > maximumMassLimit) {
     preparedForLiftOff = false;
 }
 // add logic below to verify the fuel temperature is within the appropriate range of -150 and -300
-if (fuelTempCelsius < minimumFuelTemp && fuelTempCelsius > maximumFuelTemp) {
+// if (fuelTempCelsius < minimumFuelTemp && fuelTempCelsius > maximumFuelTemp) {
+//     preparedForLiftOff = false;
+// }
+if (maximumFuelTemp<fuelTempCelsius<minimumFuelTemp) {
     preparedForLiftOff = false;
+    console.lot ("fuel temp if");
+} else {
+    console.log("fuel temp else");
 }
+
 // add logic below to verify the fuel level is at 100%
 if (fuelLevel < 100) {
     preparedForLiftOff = false;
