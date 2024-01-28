@@ -24,8 +24,7 @@ let cargoHold = ['meal kits', 'space suits', 'first-aid kit', 'satellite', 'gold
 console.log("Fuel level: " + checkFuel(fuelLevel));
 console.log("Hold status: " + holdStatus(cargoHold));
 
-/* Steal some fuel from the shuttle:
- */
+/* Steal some fuel from the shuttle: */
  
 //a). Define an anonymous function and set it equal to a variable with a normal, non-suspicious name. The function takes one parameter. This will be the fuel level on the shuttle.
 
@@ -34,6 +33,16 @@ console.log("Hold status: " + holdStatus(cargoHold));
 //c). Once you figure out how much fuel to pump out, return that value.
 
 //d). Decide where to best place your function call to gather our new fuel.
+
+let cup = function(water) {
+  if (checkFuel(water) === "green") {
+    return water - 100001;
+  } else if (checkFuel(water) === "yellow") {
+    return water - 50001;
+  } else {
+    return water
+  }
+};
 
 /* Next, liberate some of that glorious cargo.
  */
@@ -46,6 +55,20 @@ console.log("Hold status: " + holdStatus(cargoHold));
 
 //d). Don’t get hasty, matey! Remember to test your function.
 
+let snacks = function(arr) {
+  let goods = [];
+  let cheapStuff = ['thread', 'hair', 'sand', 'dirt', 'rust']
+  for (let i = 0; i < arr.length; i++) {
+    // console.log(i)
+    if (arr[i] === 'gold' || arr[i] === "satellite") {
+      goods.push(arr[i]);
+      arr[i] = cheapStuff.pop();
+      // console.log('if')
+    }
+  }
+  return goods;
+};
+
 /* Finally, you need to print a receipt for the accountant. Don’t laugh! That genius knows MATH and saves us more gold than you can imagine.
  */
  
@@ -55,3 +78,16 @@ console.log("Hold status: " + holdStatus(cargoHold));
 
 //c). Use a template literal to return, "Raided _____ kg of fuel from the tanks, and stole ____ and ____ from the cargo hold."
 
+// console.log(cup(fuelLevel));
+// let goods = [];
+// goods = snacks(cargoHold);
+// console.log(goods);
+// console.log(cargoHold);
+
+function irs(fuelLevel, cargoHold) {
+  let newFuel = cup(fuelLevel);
+  let goods = snacks(cargoHold);
+  return `Raided ${newFuel}kg of fuel from the tanks, and stole ${goods[0]} and ${goods[1]} from the cargo hold.`;
+}
+
+console.log(irs(fuelLevel, cargoHold));

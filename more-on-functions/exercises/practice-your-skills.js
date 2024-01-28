@@ -13,3 +13,16 @@ c) Print the new array to confirm your work.
 */
 
 let arr = ['Elocution', 21, 'Clean teeth', 100];
+
+
+let valueAnalysis = function(value){
+    if (typeof value === "number") {
+        return value * 3;
+    } else if (typeof value === "string") {
+        return "ARRR!";
+    } else {
+        return value;
+    }
+};
+
+console.log(arr.map(valueAnalysis));
