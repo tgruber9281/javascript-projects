@@ -84,10 +84,9 @@ let snacks = function(arr) {
 // console.log(goods);
 // console.log(cargoHold);
 
-function irs(fuelLevel, cargoHold) {
-  let newFuel = cup(fuelLevel);
+let irs = function(fuelLevel, cargoHold) {
   let goods = snacks(cargoHold);
-  return `Raided ${newFuel}kg of fuel from the tanks, and stole ${goods[0]} and ${goods[1]} from the cargo hold.`;
+  return `Raided ${cup(fuelLevel)}kg of fuel from the tanks, and stole ${goods[0]} and ${goods[1]} from the cargo hold.`;
 }
 
 console.log(irs(fuelLevel, cargoHold));
