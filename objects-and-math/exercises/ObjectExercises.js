@@ -57,16 +57,16 @@ function crewReports(crewMember) {
 
 // Start an animal race!
 
-function fitnessTest(arr) {
+function fitnessTest(crewArr) {
    let results = [];
-   for (i = 0; i < arr.length; i++) {
+   for (const crewMember of crewArr) {
       let steps = 0;
       let turns = 0;
       while (steps < 21) {
-         steps += arr[i].move();
+         steps += crewMember.move();
          turns++
       }
-      results.push(`${arr[i].name} took ${turns} turns to take 20 steps.`)
+      results.push(`${crewMember.name} took ${turns} turns to take 20 steps.`)
    }
    return results;
 }
@@ -76,4 +76,12 @@ let raceResults = [];
 raceResults = fitnessTest(crew);
 for (const i in raceResults) {
    console.log(raceResults[i]);
+   console.log('mine')
 }
+
+
+//finish from lecture video
+fitnessTest(crew).map (raceResults => {
+   console.log(raceResults);
+   console.log('lec')
+});

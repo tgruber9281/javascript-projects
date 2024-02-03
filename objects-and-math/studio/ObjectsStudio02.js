@@ -19,7 +19,23 @@ function selectRandomEntry(arr) {
 function oxygenExpended(crewMember, radius, speed) {
   let hours = missionDuration(3,radius, speed);
   let oxygenUsed = Math.round(crewMember.o2Used(hours)*1000)/1000;
-  console.log(`${crewMember.name} will perform the spacewalk, which will last ${hours} hours and require ${oxygenUsed}kg of oxygen.`);
+  // `${crewMember.name} will perform the spacewalk, which will last ${hours} hours and require ${oxygenUsed}kg of oxygen.`);
+  return oxygenUsed;
+}
+
+function selectLeastOxygen(crew) {
+  let crewMember = {};
+  let oxygenUsed = [];
+  for (const cand of crew) {
+    oxygenUsed.push([cand.astronautID,oxygenExpended(cand)])
+  }
+  let minOxygen = oxygenUsed[0];
+  for (let i = 0; i < oxygenUsed.length; i++) {
+    if (oxygenUsed[i][1] < minOxygen[1]) {
+      minOxygen = oxygenUsed[i];
+    }
+  }
+  return oxygenUsed.indexOf(minOxygen);
 }
 
 // Candidate data & crew array.
@@ -66,5 +82,6 @@ let candidateA = {
    'astronautID':890
  };
  
- let crew = [candidateA,candidateC,candidateE];
+ let crew = [candidateA,candidateC,candidateD];
  oxygenExpended(crew[selectRandomEntry(crew)], 5000, 80);
+ oxygenExpended(crew[selectLeastOxygen(crew)], 5000, 80);
