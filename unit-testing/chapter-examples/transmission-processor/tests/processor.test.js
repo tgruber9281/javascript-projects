@@ -33,6 +33,35 @@ describe("transmission processor", () => {
     expect(result.rawData).toBe(-1);
  });
 
+  test('returns -1 for rawData if missing > at final position', () => {
+    let result = processor("9701::<487297403495720912");
+    expect(result.rawData).toBe(-1);
+  });
+
+  test("returns -1 for rawData if > is in wrong place", () => {
+    let result = processor("9701::<487297403495<720912>");
+    expect(result.rawData).toBe(-1);
+  });
+
+  test("should trim whitespace from transmission", () => {
+    let result = processor("9701::<487297403495720912> ");
+    expect(result.rawData).toBe('487297403495720912');
+  });
+
+  test("returns -1 if id is NaN", () => {
+    let result = processor("970d1::<487297403495720912> ");
+    expect(result.id).toBe(-1);
+  });
+
+  it('returns -1 if transmission includes multiple sets of ::', () => {
+    let result = processor('9701::<48729::510524538>');
+    expect(result).toBe(-1);
+  })
+
+  it('returns -1 if letters are present in the rawdata', () => {
+    let result = processor('9707::<4895125d6542588>');
+    expect(result.rawData).toBe(-1);
+  })
  //add final test cases from examples and then write the code
 });
 
