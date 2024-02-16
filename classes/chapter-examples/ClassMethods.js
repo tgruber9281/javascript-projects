@@ -25,8 +25,9 @@ class AstronautI {
    }
  }
  
- let fox = new AstronautI('Fox', 7, 12);
+ let fox = new AstronautI('Fox', 25, 12);
  let hippo = new AstronautO('Hippo', 25, 1000);
  
  console.log(fox);
  console.log(hippo);
+ console.log(fox.age == hippo.age)
