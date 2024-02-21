@@ -1,20 +1,19 @@
-/* Start adding your styling below! */ 
+/* Start adding your styling below! */
 body {
-    background-color: yellow;
+  background-color: yellow;
 }
 p {
-    color: green;
+  color: green;
 }
-
 h1 {
-    size: 36px;
+  size: 36px;
 }
 .headings {
-    text-align: center;
+  text-align: center;
 }
 #cool-text {
-    color: blue;
+  color: blue;
 }
 #magenta-text {
-    color: magenta
+  color: magenta;
 }
