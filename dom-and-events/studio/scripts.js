@@ -84,11 +84,15 @@ function init() {
     }
   });
   moveRight.addEventListener("click", () => {
-    shuttleImgLeft += 10;
+    /*shuttleImgLeft += 10;
     if (checkValidPosition(shuttleImgTop, shuttleImgLeft)) {
       shuttleImg.style.left = shuttleImgLeft + "px";
     } else {
       shuttleImgLeft -= 10;
+    }*/
+    if (checkValidPosition(shuttleImgTop, shuttleImgLeft+10)) {
+        shuttleImgLeft += 10;
+        shuttleImg.style.left = shuttleImgLeft+'px';
     }
   });
   moveUp.addEventListener("click", () => {
