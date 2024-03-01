@@ -2,6 +2,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <link rel="stylesheet" href="./style.css" type="text/css">
+    <script src="./script.js"></script>
     <title>Rocket Simulation</title>
     <style>
       label {
@@ -14,7 +16,7 @@
     <!-- TODO: add form here -->
     <form method="post" action="https://handlers.education.launchcode.org/request-parrot">
       <label for="testName">Test Name <input type="text" name="testName"/></label>
-      <label for="testDate">Test Date <input type="date" name="testDate"></label>
+      <label for="testDate">Test Date<span class="required">*</span> <input required type="date" name="testDate"></label>
       <label for="rocketType">Rocket Type <select name="rocketType">
         <option value="Brant">Brant</option>
         <option value="Lynx">Lynx</option>

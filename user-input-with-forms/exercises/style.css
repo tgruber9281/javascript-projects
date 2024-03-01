@@ -1,1 +1,7 @@
 /*/ Code Your Solution Below /*/
+:required {
+    background-color: gold;
+}
+.required {
+    color: red;
+}
